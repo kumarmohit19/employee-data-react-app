@@ -1,0 +1,117 @@
+:root {
+   --primary-color: aquamarine;
+   --background-color: #111;
+}
+
+.App {
+   min-height: 100vh;
+   color: var(--primary-color);
+   background-color: var(--background-color);
+}
+
+.App a {
+   color: #fff;
+   transition: all 0.3s;
+}
+
+.App a:hover {
+   color: var(--primary-color);
+   text-decoration: none;
+}
+
+.App button {
+   background-color: var(--background-color);
+   border: 1px solid var(--primary-color);
+   color: #fff;
+   transition: all 0.3s;
+}
+
+.App button:hover, .App button:active {
+   background-color: var(--primary-color);
+   color: var(--background-color);
+}
+
+.App button.active-btn {
+   color: var(--primary-color);
+}
+
+.App input, .App select {
+   background-color: var(--background-color);
+   color: #fff;
+   border: 1px solid var(--primary-color);
+}
+
+.App input:active, .App select:active {
+   background-color: var(--background-color);
+   color: var(--primary-color);
+   border: 1px solid var(--primary-color);
+}
+
+.header {
+   background-color: var(--background-color);
+   color: var(--primary-color);
+   width: 100%;
+   font-size: 2rem;
+   padding: 1rem 2rem;
+   margin-bottom: 4rem;
+   border-bottom: 1px solid #ccc;
+}
+
+.login-form {
+   max-width: 600px;
+   margin: 0 auto;
+   border: 1px solid var(--primary-color);
+   border-radius: 5px;
+   padding: 3rem;
+}
+
+.filters {
+   padding: 2rem 0;
+   display: flex;
+}
+
+.filters > * {
+   margin: 0rem 0.5rem;
+}
+
+.emp-list {
+   display: block;
+   padding: 0.5rem 1rem;
+   border: 1px solid var(--primary-color);
+   margin: 0.5rem ;
+   border-radius: 5px;
+   color: #fff;
+}
+
+.emp-list:hover {
+   color: var(--primary-color);
+   text-decoration: none;
+}
+
+.emp-card {
+   max-width: 600px;
+   margin: 0 auto;
+   border: 1px solid var(--primary-color);
+   background-color: var(--background-color);
+   color: #fff;
+   padding: 3rem 4rem;
+}
+
+.emp-card p {
+   text-align: center;
+}
+
+.logo {
+   color: #fff;
+   background-color: var(--primary-color);
+   width: 150px;
+   height: 150px;
+   font-size: 3rem;
+   border-radius: 50%;
+   text-align: center;
+   align-self: center;
+   line-height: 9rem;
+   margin-bottom: 4rem;
+}
+
+
