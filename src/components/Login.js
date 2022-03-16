@@ -12,7 +12,7 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
     if (userName === "Admin" && password === "Admin") {
       setIsAuthenticated(true);
-      navigate('/search');
+      navigate('/search/page/1');
     } else {
       setError("Username or Password is Wrong");
     }

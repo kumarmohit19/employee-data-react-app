@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Moment from 'react-moment';
 
 function Search() {
@@ -10,11 +10,13 @@ function Search() {
   const [attr, setAttr] = useState("name");
   const [order, setOrder] = useState(true);
 
-  const apiUrl = 'https://retoolapi.dev/NM1xLV/data';
+  const { pageNo } = useParams();
+
+  const apiUrl = 'https://retoolapi.dev/8kUBIb/data';
 
   useEffect(() => {
     axios
-    .get(apiUrl)
+    .get(`${ apiUrl }?_page=${ pageNo }`)
     .then((res) => {
       setUsersData(res.data);
       const sortedList = sortUserList(attr, order, res.data);
@@ -24,7 +26,7 @@ function Search() {
       console.log(error);
       setError(error);
     });
-  }, [attr, order]);
+  }, [attr, order, pageNo]);
 
   const sortUserList = (attr, order, list) => {
     if (order) {
@@ -87,10 +89,10 @@ function Search() {
             placeholder="Search For anything..."
             onChange={(e) => filterUserList(e.target.value)}
           ></input>
-          <button onClick={() => handleClick(true) } className={order ? 'active-btn' : ''}>
+          <button title="Sort in ascending" onClick={() => handleClick(true) } className={order ? 'active-btn' : ''}>
             <i className={"fas fa-solid fa-arrow-down"}></i>
           </button>
-          <button onClick={() => handleClick(false)} className={!order ? 'active-btn' : ''}>
+          <button title="Sort in descending" onClick={() => handleClick(false)} className={!order ? 'active-btn' : ''}>
             <i className="fas fa-solid fa-arrow-up"></i>
           </button>
 
@@ -102,10 +104,10 @@ function Search() {
             }}
           >
             <option value="name" defaultValue={"name"}>
-              name
+              Name
             </option>
             <option value="joinedOn">JoinedOn</option>
-            <option value="profession">profession</option>
+            <option value="profession">Profession</option>
           </select>
           <button className="form-control" onClick={() => resetFilters()}>
             Reset
@@ -123,6 +125,27 @@ function Search() {
           : <h4>Loading...</h4>) 
         : <h4>No Data Found</h4> }
         {error ? error : null}
+
+        <nav aria-label="Page navigation">
+          <ul className="pagination justify-content-center">
+            <li className={"page-item " + ( pageNo === '1' ? "disabled" : "" )}>
+              <Link className="page-link" to={`/search/page/${pageNo - 1}`} tabindex="-1">Previous</Link>
+            </li>
+            <li className={"page-item " + ( pageNo === '1' ? "active" : "" )}>
+              <Link className="page-link" to={`/search/page/1`}>1</Link></li>
+            <li className={"page-item " + ( pageNo === '2' ? "active" : "" )}>
+              <Link className="page-link" to={`/search/page/2`}>2</Link></li>
+            <li className={"page-item " + ( pageNo === '3' ? "active" : "" )}>
+              <Link className="page-link" to={`/search/page/3`}>3</Link></li>
+            <li className={"page-item " + ( pageNo === '4' ? "active" : "" )}>
+              <Link className="page-link" to={`/search/page/4`}>4</Link></li>
+            <li className={"page-item " + ( pageNo === '5' ? "active" : "" )}>
+              <Link className="page-link" to={`/search/page/5`}>5</Link></li>
+            <li className={"page-item " + ( pageNo === '5' ? "disabled" : "" )}>
+              <Link className="page-link" to={`/search/page/${+pageNo + 1}`}>Next</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );

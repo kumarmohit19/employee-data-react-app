@@ -35,6 +35,10 @@
    color: var(--primary-color);
 }
 
+.App button.active-btn:hover {
+   color: #fff;
+}
+
 .App input, .App select {
    background-color: var(--background-color);
    color: #fff;
@@ -53,8 +57,9 @@
    width: 100%;
    font-size: 2rem;
    padding: 1rem 2rem;
-   margin-bottom: 4rem;
+   margin-bottom: 2rem;
    border-bottom: 1px solid #ccc;
+   box-shadow: 0px 1px 10px #ccc;
 }
 
 .login-form {
@@ -83,6 +88,10 @@
    color: #fff;
 }
 
+.emp-list:last-child {
+   margin-bottom: 0;
+}
+
 .emp-list:hover {
    color: var(--primary-color);
    text-decoration: none;
@@ -99,6 +108,7 @@
 
 .emp-card p {
    text-align: center;
+   font-size: 18px;
 }
 
 .logo {
@@ -114,4 +124,40 @@
    margin-bottom: 4rem;
 }
 
+.App .pagination {
+   margin-top: 2rem;
+}
+
+.App .page-item.disabled .page-link { 
+   color: #bbb;
+   background-color: var(--background-color);
+   border: 1px solid var(--primary-color);
+}
+
+.App .page-item.active .page-link {
+   color: var(--primary-color);
+   background-color: var(--background-color);
+   border: 1px solid var(--primary-color);
+}
+
+.App .page-link {
+   background-color: var(--background-color);
+   border: 1px solid var(--primary-color);
+}
+
+.footer {
+   position: absolute;
+   width: 100%;
+   bottom: 0;
+   font-size: 18px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 1rem 0rem;
+   color: #fff;
+}
+
+.footer:hover {
+   color: var(--primary-color);
+}
 

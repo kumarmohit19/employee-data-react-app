@@ -9,7 +9,7 @@ function EmpData() {
   const { id } = useParams();
   const [empInitials, setEmpInitials]= useState('');
 
-  const apiUrl = 'https://retoolapi.dev/NM1xLV/data';
+  const apiUrl = 'https://retoolapi.dev/8kUBIb/data';
 
   const setEmpInitial = (nameString) => {
     const fullName = nameString.split(' ');
@@ -32,7 +32,7 @@ function EmpData() {
   return (
     <>
       <header className="header">
-        <Link to="/search" ><i className="fas fa-arrow-left" ></i> {'   '}</Link>
+        <Link to="/search/page/1" ><i className="fas fa-arrow-left" ></i> {'   '}</Link>
         {empData && empData.name.split(' ')[0]} Profile</header>
       <div className="card emp-card">
       {error ? <h3>Employee Data Not found</h3>
